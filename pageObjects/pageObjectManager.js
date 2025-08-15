@@ -1,21 +1,21 @@
-const QuestionSubmission = require('./questionSubmissionPage.js');
-const AnswerSubmission = require('./answerSubmissionPage.js');
+import AppSetting from './appSetting/appSettingbasePage.js';
+import Login from './loginPage.js';
 
 class pageObjectManager {
-    
-    constructor(page) {
-        this.page = page;
-        this.questionSubmissionPage = new QuestionSubmission(this.page);
-        this.answerSubmissionPage = new AnswerSubmission(this.page);
-    }
+  constructor(page) {
+    this.page = page;
+    this.appSetting = new AppSetting(this.page);
+    this.login = new Login(this.page);
+  }
 
-    async getQuestionSubmissionPage() {
-        return this.questionSubmissionPage;
-    }
+  async getAppSettingPage() {
+    return this.appSetting;
+  }
 
-    async getAnswerSubmissionPage() {
-        return this.answerSubmissionPage;
-    }
+  async getLoginPage(){
+    return this.login;
+  }
+
 }
 
-module.exports = pageObjectManager;
+export default pageObjectManager;

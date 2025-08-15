@@ -1,0 +1,11 @@
+// eslint and Prettier setup
+
+/*
+
+1.npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier
+2.npx eslint --init
+3.Configure ESLint + Prettier file
+4.Add scripts in package.json
+5.VS Code Setup for Auto-Fix on Save
+6.test the setup
+7.add eslint-plugin-playwright for better test linting */

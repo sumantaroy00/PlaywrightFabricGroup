@@ -1,5 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","8838","should open question submission form","question-submission","Thu Jul 24 15:56:49 IST 2025","passed","Thu Jul 24 15:56:57 IST 2025","Question Submission Module","tests\question\questionSubmission\question.submission.spec.js","",""
-"","7469","should open question submission form","chromium","Thu Jul 24 15:57:12 IST 2025","passed","Thu Jul 24 15:57:19 IST 2025","Question Submission Module","tests\question\questionSubmission\question.submission.spec.js","",""
-"","5099","should open answer submission form","answer-submission","Thu Jul 24 15:56:59 IST 2025","passed","Thu Jul 24 15:57:04 IST 2025","Answer Submission","tests\answer\answerSubmission\answerSubmission.spec.js","",""
-"","5089","should open answer submission form","chromium","Thu Jul 24 15:57:06 IST 2025","passed","Thu Jul 24 15:57:11 IST 2025","Answer Submission","tests\answer\answerSubmission\answerSubmission.spec.js","",""
+"","5761","should open question submission form","chromium","Fri Aug 15 17:59:39 IST 2025","passed","Fri Aug 15 17:59:45 IST 2025","Question Submission Module","tests\appSetting\table.spec.js","",""
