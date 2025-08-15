@@ -1,0 +1,23 @@
+{
+  "name": "playwright-test-setup",
+  "version": "1.0.0",
+  "description": "A Playwright test setup with Allure reporting",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "playwright": "^1.54.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/register": "^7.27.1",
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.1.0",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.3.2",
+    "cross-env": "^7.0.3"
+  },
+  "scripts": {
+    "test:development": "cross-env ENV=development npx playwright test && npx allure generate ./allure-results --clean -o ./allure-report && npx allure open allure-report",
+    "test:production": "cross-env ENV=production npx playwright test && npx allure generate ./allure-results --clean -o ./allure-report && npx allure open allure-report"
+  }
+}

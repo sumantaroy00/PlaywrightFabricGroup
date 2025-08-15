@@ -1,0 +1,30 @@
+[{
+    "questionAndAnswerTestData": {
+        "question": {
+            "questionInput": "PLease tell the usage of Playwright in testing.",
+            "locationInput": "France."
+        },
+        "answer": {
+            "answerInput": "Playwright is a powerful tool for end-to-end testing of web applications",
+            "locationInput": "NY, USA"
+        }
+    }
+
+
+},
+{
+    "questionAndAnswerTestData": {
+        "question": {
+            "questionInput": "new PLease tell the usage of Playwright in testing.",
+            "locationInput": "new France."
+        },
+        "answer": {
+            "answerInput": "new Playwright is a powerful tool for end-to-end testing of web applications",
+            "locationInput": "new NY, USA"
+        }
+    }
+
+
+}
+
+]
