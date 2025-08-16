@@ -46,4 +46,4 @@ console.log(generateRandomEmail());
 
 // Example usage:
 console.log(generateNiceName());
-module.exports = { generateNiceName, generateRandomEmail };
+export default { generateNiceName, generateRandomEmail };

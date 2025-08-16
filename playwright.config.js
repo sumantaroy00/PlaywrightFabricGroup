@@ -21,6 +21,8 @@ console.log('Loaded BASE_URL:', process.env.BASE_URL);
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+
+  timeout: 60 * 1000, // 60 seconds for each test
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */

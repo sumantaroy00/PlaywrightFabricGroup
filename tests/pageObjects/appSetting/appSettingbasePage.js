@@ -1,6 +1,8 @@
 // pages/AppSettingsPage.js';
+import { expect } from '@playwright/test';
 
- class AppSettingsPage {
+
+class AppSettingsPage {
 
 
   constructor(page) {
@@ -16,7 +18,7 @@
 
     await this.appSettingLink.waitFor();
     await this.appSettingLink.click();
-   // await this.tablesLink.waitFor({ state: 'visible', timeout: 60000 });
+    await expect(this.page).toHaveURL(/appsettingshome/); 
     await this.tablesLink.click();
     await this.page.waitForLoadState('networkidle');
   }
