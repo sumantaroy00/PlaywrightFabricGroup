@@ -15,10 +15,6 @@
   async userLoginWithoutSSo() {
     await this.nossoLogin.click();
     // eslint-disable-next-line no-undef
-    console.log(process.env.DATA);
-    // eslint-disable-next-line no-undef
-    console.log(process.env.PASSWORD);
-    // eslint-disable-next-line no-undef
     await this.userName.fill(process.env.DATA);
     // eslint-disable-next-line no-undef
     await this.password.fill(process.env.PASSWORD);
