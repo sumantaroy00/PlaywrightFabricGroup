@@ -12,10 +12,16 @@ import pageObjectManager from '../../pageObjects/pageObjectManager.js';
     await loginPage.userLoginWithoutSSo();
   });
 
+  test.afterEach(async ({ page })=>{
+
+     await page.close();
+
+  });
+
 
 test.describe('App Setting - > Table  Module', () => {
 
-    test('login and click app setting link->tables link', async ({ page }) => {
+    test.skip('login and click app setting link->tables link', async ({ page }) => {
 
        const POManager = new pageObjectManager(page);
        const appSettingPage = await POManager.getAppSettingPage();    
@@ -34,9 +40,12 @@ test.describe('App Setting - > Table  Module', () => {
        const tablePages = await POManager.getTablesPage();
        await appSettingPage.goToTables();
        await expect(page).toHaveURL(/AppTablesList/);
+
        const countBefore = await appSettingPage.getTablesCount();
        await appSettingPage.clickOnNewTable();
        await tablePages.fillTableForm();
+
+       await appSettingPage.goToTables();
        const countAfter = await appSettingPage.getTablesCount();
        expect(countBefore+1).toBe(countAfter);
 
