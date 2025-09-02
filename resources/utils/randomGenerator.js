@@ -18,5 +18,21 @@ function generateTableName() {
   return `${randomdata}`;
 }
 
+ function generateRegisterData() {
+    const random = Math.floor(Math.random() * 100000);
 
-export default generateTableName;
+    return {
+        firstName: 'test',
+        lastName: 'roy',
+        address: '123 Main St',
+        city: 'New York',
+        state: 'NY',
+        zipCode: '10001',
+        phoneNumber: '1234567890',
+        ssn: '111-22-3333',
+        username: `user${random}`,   
+        password: `pass@${random}`,
+        confirm: `pass@${random}`
+    };
+}
+export default {generateTableName,generateRegisterData};

@@ -1,26 +1,53 @@
-// pages/AppSettingsPage.js';
-
- class loginPage {
-
-
+import basePage from './basePage';
+import { expect } from '@playwright/test';
+ class loginPage extends basePage{
+  
+  
   constructor(page) {
-    this.ssoLogin = page.getByText('Yes');
-    this.nossoLogin = page.getByRole('button', { name: 'No' });
-    this.userName = page.getByRole('cell', { name: 'You need to sign in to get to' }).locator('input[name="loginid"]');
-    this.password = page.locator('input[name="password"]');
-    this.signIn = page.getByRole('button', {name:'Sign in'});
+        super(page);
+        
+        this.usernameInput = this.page.locator(`xpath=.//input[@name='username']`)   
+        this.passwordInput = this.page.locator('input[type="password"]')       
+        this.loginButton = this.page.locator('input[value="Log In"]')
+    }
 
-  }
+  
 
-  async userLoginWithoutSSo() {
-    await this.nossoLogin.click();
-    // eslint-disable-next-line no-undef
-    await this.userName.fill(process.env.DATA);
-    // eslint-disable-next-line no-undef
-    await this.password.fill(process.env.PASSWORD);
-    await this.signIn.click();
+    async enterUsername(username) {
+
+            await this.usernameInput.click();
+            await this.usernameInput.fill('');
+            await this.usernameInput.fill(username);
+           
+    }
+
+    async enterPassword(password) {
+            await this.passwordInput.click();
+            await this.passwordInput.fill('');
+            await this.passwordInput.fill(password);
+    }
+
+    async clickLoginButton() {
+        
+        await this.loginButton.waitFor({ state: 'visible' });
+        await this.loginButton.click();    
+        await expect(this.page).toHaveURL(/.*overview\.htm/);
+    }
+
+   
+
+    // ========================================
+    // COMPLETE LOGIN WORKFLOWS
+    // ========================================
+
+    async login(username, password) {
+        
+        await this.enterUsername(username);
+        await this.enterPassword(password);
+        await this.clickLoginButton();
+    }
+
     
   }
 
-}
- export default loginPage;
+  export default loginPage;
