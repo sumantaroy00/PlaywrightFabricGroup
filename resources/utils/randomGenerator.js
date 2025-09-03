@@ -35,4 +35,21 @@ function generateTableName() {
         confirm: `pass@${random}`
     };
 }
-export default {generateTableName,generateRegisterData};
+
+function generateBillPayData() {
+    const random = Math.floor(Math.random() * 100);
+
+    return {
+        payeeName: 'test',
+        address: '123 Main St',
+        city: 'New York',
+        state: 'NY',
+        zipCode: '10001',
+        phone: '1234567890',
+        verifyAccountNumber: '13456',
+        accountNumber: '13456',
+        amount: random,
+       
+    };
+}
+export default {generateTableName,generateRegisterData,generateBillPayData};

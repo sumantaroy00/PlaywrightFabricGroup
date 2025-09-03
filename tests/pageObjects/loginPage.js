@@ -34,12 +34,6 @@ import { expect } from '@playwright/test';
         await expect(this.page).toHaveURL(/.*overview\.htm/);
     }
 
-   
-
-    // ========================================
-    // COMPLETE LOGIN WORKFLOWS
-    // ========================================
-
     async login(username, password) {
         
         await this.enterUsername(username);

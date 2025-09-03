@@ -24,7 +24,7 @@ export default defineConfig({
 
   timeout: 60 * 1000, // 60 seconds for each test
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -49,13 +49,14 @@ export default defineConfig({
   },
   /* Configure the browser context */
   projects: [
-    {
-      name: 'question-submission',
-      testDir: './tests/question/questionSubmission',
+     {
+      name: 'register',
+      testMatch: './tests/specs/paraBankRegistration.spec.js',
     },
     {
-      name: 'answer-submission',
-      testDir: './tests/answer/answerSubmission',
+      name: 'other-tests',
+      testMatch: './tests/specs/paraBankLogin.spec.js',
+      dependencies: ['register'], // ✅ ensures register runs first
     },
     {
       name: 'chromium',
