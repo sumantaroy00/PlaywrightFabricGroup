@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","5892","verify Global Navigation Menu","chromium","Wed Sep 03 11:54:44 IST 2025","passed","Wed Sep 03 11:54:50 IST 2025","Login Flow","tests\specs\paraBankLogin.spec.js","",""
+"","13046","verify user is able to Open New Account Page and pay the bills","chromium","Wed Sep 03 11:54:50 IST 2025","passed","Wed Sep 03 11:55:03 IST 2025","Login Flow","tests\specs\paraBankLogin.spec.js","",""
+"","7618","verify new user is able to register details","chromium","Wed Sep 03 11:55:04 IST 2025","passed","Wed Sep 03 11:55:11 IST 2025","Register New User Flow","tests\specs\paraBankRegistration.spec.js","",""

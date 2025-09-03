@@ -1,0 +1,14 @@
+Selected Existing Account Number: 19005
+New Savings Account Created: 19671
+Last Account Row -> Account Number: 19671, Balance: $100.00
+APIResponse: 200 OK
+  Date: Wed, 03 Sep 2025 06:16:12 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Content-Encoding: br
+  cf-cache-status: DYNAMIC
+  X-Content-Type-Options: nosniff
+  Server: cloudflare
+  CF-RAY: 97931df33857ddcb-HKG
+{ payeeName: 'test', amount: 50, accountId: 19671 }
