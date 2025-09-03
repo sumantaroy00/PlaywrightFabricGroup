@@ -6,31 +6,33 @@ class ApiUtils {
     this.baseUrl = baseUrl;
   }
 
-  async findTransactionsByAmount(accountId, amount) {
-    const response = await this.request.get(
-      `${this.baseUrl}/services/bank/findtrans`, {
-        params: { accountId, amount }
-      }
+  async findTransactionsByAmount(accountId, amount,payload,username,password) {
+
+        const response = await this.request.post(
+            `${this.baseUrl}/services_proxy/bank/billpay`, {
+            params: { accountId, amount },
+            headers: {
+                "Content-Type": "application/json",
+                 // eslint-disable-next-line no-undef
+                 "Authorization": "Basic " + Buffer.from(`${username}:${password}`).toString("base64")
+
+            },
+            data: payload   // this is the JSON body for the POST
+            }
     );
 
     expect(response.ok()).toBeTruthy();
 
     const body = await response.json();
+    console.log(body);
+    
     return body;
   }
 
   validateTransaction(transaction, expected) {
     expect(transaction.amount).toBe(expected.amount);
-    expect(transaction.accountId).toBe(expected.accountId);
-    if (expected.type) {
-      expect(transaction.transactionType).toBe(expected.type);
-    }
-    if (expected.date) {
-      expect(transaction.date).toContain(expected.date); // partial match
-    }
-    if (expected.description) {
-      expect(transaction.description).toBe(expected.description);
-    }
+    expect(Number(transaction.accountId)).toBe(Number(expected.newAccountNumber));
+
   }
 }
 

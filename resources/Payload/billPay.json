@@ -1,0 +1,11 @@
+{
+  "accountNumber": "12345",
+  "address": {
+    "street": "B-403 Mana Karmel Apartment Survey No.193 and 194, Kodathi, Off Sarjapur Road, East Taluk",
+    "city": "Bangalore",
+    "state": "KA",
+    "zipCode": "560035"
+  },
+  "name": "test",
+  "phoneNumber": "63712561"
+}
