@@ -33,7 +33,7 @@ test.afterEach(async () => {
 });
 
 
-test.describe('Login Flow - Web and Bill Pay API validation', () => {
+test.describe('Login Flow - Web and Bill Pay API validation', async () => {
 
         test('verify Global Navigation Menu', async ({ page }) => {
 
@@ -75,26 +75,27 @@ test.describe('Login Flow - Web and Bill Pay API validation', () => {
 
 
                 //API Bill Pay use case
+            const baseUrl = "https://parabank.parasoft.com/parabank";
+            const creds = JSON.parse(fs.readFileSync("creds.json", "utf-8"));
 
-                const baseUrl = "https://parabank.parasoft.com/parabank";
-                const api = new ApiUtils(request, baseUrl);
+            const api = new ApiUtils(request, baseUrl, creds.username, creds.password);
 
+            const rawData = fs.readFileSync("resources/Payload/billPay.json", "utf-8");
+            const payload = JSON.parse(rawData);
 
-                  // Read payload from JSON file
-                const rawData = fs.readFileSync("resources/Payload/billPay.json");
-                const payload = JSON.parse(rawData);
-                payload.accountNumber = testData.accountNumber;
-                const creds = JSON.parse(fs.readFileSync('creds.json', 'utf-8'));
+            // 🔹 Step 1: Bill Pay
+            const billPayResponse = await api.billPay(newAccountNumber, amount, payload);
+            api.validateBillPay(billPayResponse, { newAccountNumber, amount });
 
+            // 🔹 Step 2: Find Transactions
+            const transactions = await api.findTransactionsByAmount(newAccountNumber, amount);
+            api.validateTransactionByAmount(transactions[0], {
+              accountId: newAccountNumber,
+              amount,
+              description: "Funds Transfer Received", // adjust if "Bill Payment"
+              type: "Credit"
+            });
 
-                // Step 1: Call Find Transaction API
-                const transactions = await api.findTransactionsByAmount(newAccountNumber, amount,payload,creds.username,creds.password);
-
-                // Step 2: Validate JSON Response
-                api.validateTransaction(transactions, {
-                    newAccountNumber,
-                    amount,
-                });
-                    });
+          });
 
 });

@@ -1,3 +1,0 @@
-Selected Existing Account Number: 15453
-New Savings Account Created: 15675
-Last Account Row -> Account Number: 15675, Balance: $100.00

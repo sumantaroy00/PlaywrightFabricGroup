@@ -3,5 +3,5 @@ dist
 coverage
 test-results
 playwright-report
-/allure-report/
+/allure-reports/
 /allure-results/
